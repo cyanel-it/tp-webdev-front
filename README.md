@@ -3,12 +3,19 @@ Basics of web development
 
 # Goal
 
-Goal is build a small search engine. A user should be able to perform:
+Goal is build a small search engine.
+
+A user should be able to perform:
 
 - Search in a field and click to run the online search
 - Show results in a table 
 - Click on detail icon which is on each line
 - See the details on the page 
+
+You should to be able to:
+
+- Know about the usage of your site by tacking and display statistics
+
 
 Good luck, I will enjoy my coffee while you work hard ;)
 
@@ -83,6 +90,8 @@ The counters must track:
 ## Create a new page for statistics and put the link in the home page
 
 ### Expected feature
+
+Anybody can access to a page stats.html. This page show the statistics of your site (visits, search, details). You can display them on a HTML table or a graph.
 
 ### mockup
 
