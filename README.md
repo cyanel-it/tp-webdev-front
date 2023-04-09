@@ -97,5 +97,12 @@ Anybody can access to a page stats.html. This page show the statistics of your s
 
 ### Tips & help
 
+Use https://countapi.xyz/#format
+
+Prefer to use XHR or JQuery method (For JQuery, you need to declare jQuery first)
+
 ## Want more?
 
+### Most visited details
+
+Compare and display a graph with details hits rank.
