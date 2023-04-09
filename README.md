@@ -22,7 +22,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 # Steps
 
-## Build your requests with postman
+## 1 - Build your requests with postman
 
 ### Expected feature
 
@@ -31,7 +31,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 ### Tips & help
 
 
-## Build your web page from scratch
+## 2 - Build your web page from scratch
 
 ### Expected feature
 
@@ -39,7 +39,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 ### Tips & help
 
-## Add a search form to your page
+## 3 - Add a search form to your page
 
 ### Expected feature
 
@@ -47,7 +47,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 ### Tips & help
 
-## Display result in a dynamic table
+## 4 - Display result in a dynamic table
 
 ### Expected feature
 
@@ -55,7 +55,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 ### Tips & help
 
-## Add a details zone
+## 5 - Add a details zone
 
 ### Expected feature
 
@@ -63,7 +63,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 ### Tips & help
 
-## Add a link to table items to disploy in details
+## 6 - Add a link to table items to disploy in details
 
 ### Expected feature
 
@@ -71,7 +71,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 ### Tips & help
 
-## Add counters on your site
+## 7 - Add counters on your site
 
 ### Expected feature
 
@@ -88,7 +88,7 @@ The counters must track:
 - Use the online free hit API
 - Reminder : Postman is your friend to discover and play without UI drawbacks
 
-## Create a new page for statistics and put the link in the home page
+## 8 - Create a new page for statistics and put the link in the home page
 
 ### Expected feature
 
@@ -102,8 +102,6 @@ Use https://countapi.xyz/#format
 
 Prefer to use XHR or JQuery method (For JQuery, you need to declare jQuery first)
 
-## Want more?
-
-### Most visited details
+## 9 - Want more? Most visited details
 
 Compare and display a graph with details hits rank.
