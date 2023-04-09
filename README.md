@@ -1,4 +1,5 @@
-# webdev1 (Vanilla Days!)
+# webdev Level 1 (Vanilla Days!)
+
 Basics of web development
 
 # Goal
