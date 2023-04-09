@@ -22,56 +22,87 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 # Steps
 
-## 1 - Build your requests with postman
+## 1 - Build your requests with POSTMAN
 
-### Expected feature
+First approach is prepare a little bit your data exchange. This way you can ask questions early in the project and probably fix isssues, and avoid misunderstanding with your customer.
 
-### mockup
+### Expected result
+
+Have a collection in POSTMAN with samples requests. You will need request to:
+
+- Search according what the user type and get a list of results
+- Get the details of one item in the result list
+- Get the number of visit on your home page
 
 ### Tips & help
 
+- Begin by the simpliest request the API can do
+- Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products)
 
 ## 2 - Build your web page from scratch
 
-### Expected feature
+Now it's time to have a first static mock. It's not the last version you will build so don't spend all your energy with styling. Keep this KISS (Keep It Simple Stupid).
+
+### Expected result
+
+Have a static HTML home page with future components. It's a kind of mock that we can validate with the customer and make it dynamic and styled later on.
 
 ### mockup
 
-### Tips & help
+This is a sample of page structure you can begin with
 
-## 3 - Add a search form to your page
-
-### Expected feature
-
-### mockup
+![Homepage mock](docs/img/home_mock.png)
 
 ### Tips & help
 
-## 4 - Display result in a dynamic table
+- You can find info on page structure on [alsacreation](https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html)
+- First, stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
+- Colors in mock above have been arbitrary choosen 
 
-### Expected feature
+## 3 - Implement the search form
 
-### mockup
+Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
 
-### Tips & help
+### Expected result
 
-## 5 - Add a details zone
-
-### Expected feature
-
-### mockup
-
-### Tips & help
-
-## 6 - Add a link to table items to disploy in details
-
-### Expected feature
-
-### mockup
+- A click on search trigger a call to the API
+- The result is displayed in the JavaScript console in a raw format
 
 ### Tips & help
 
-## 7 - Add counters on your site
+- Click on the button has no effect until the user type something in the search field
+- Make a JavaScript file home.js and call it in the bottom of your page
+- JavaScript has a function fetch() that could be useful ;)
+- console.log() allow you to display things in the web dev console of the browser
+
+## 4 - Display result in the table
+
+Now it's time to let the user show the result of his search. the body of the table will be now changed to be built with JavaScript
+
+### Expected result
+
+JavaScript use the result and for each element must create a row for the table 
+
+### Tips & help
+
+- Give an "id" to your table to be able to handle it with JavaScript
+- JavaScript is able to build HTML element or inject HTML syntax in the page. You can choose the method you prefer (it's better to use JavaScript function to build HTML but it's harder to handle when you begin)
+- Think about cleaning your table between searches
+
+## 5 - Implement the details zone
+
+Let's your engine to be more powerful by adding a link to disploy more details on a row.
+
+### Expected result
+
+- When user click on a link in the row, the site make a new HTTP request to get details on the item
+- The details are used to fill the details section
+
+### Tips & help
+
+- JavaScript has feature to hide / disploy a HTML portion thanks to CSS, could be an improvement to disploy only when result comes.
+
+## 6 - Add counters on your site
 
 ### Expected feature
 
@@ -81,18 +112,16 @@ The counters must track:
 - How many search user done
 - How many times user decide to show the detail (whatever it is)
 
-### mockup
-
 ### Tips & help
 
-- Use the online free hit API
+- Use the online free hit API: https://countapi.xyz/#format
 - Reminder : Postman is your friend to discover and play without UI drawbacks
 
-## 8 - Create a new page for statistics and put the link in the home page
+## 7 - Create a new page for statistics and put the link in the home page
 
 ### Expected feature
 
-Anybody can access to a page stats.html. This page show the statistics of your site (visits, search, details). You can display them on a HTML table or a graph.
+Anybody can access to a page stats.html. This page show the statistics of your site (visits, search, details) as a table.
 
 ### mockup
 
@@ -100,8 +129,9 @@ Anybody can access to a page stats.html. This page show the statistics of your s
 
 Use https://countapi.xyz/#format
 
-Prefer to use XHR or JQuery method (For JQuery, you need to declare jQuery first)
+- The main difference with the previous step is that all requests on this page don't hit the counters, it's only info
+- Prefer to use XHR/fetch or JQuery method (For JQuery, you need to declare jQuery first)
 
-## 9 - Want more? Most visited details
+## 8 - Want more? Most visited details
 
-Compare and display a graph with details hits rank.
+Change the HTML table of hot visit by a raph.
