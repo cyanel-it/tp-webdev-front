@@ -6,8 +6,6 @@ Basics of web development
 
 Goal is build a small search engine across the Metropolitan Museum of Art of New-York
 
-https://metmuseum.github.io/
-
 A user should be able to perform:
 
 - Choose a department in a combobox
@@ -33,12 +31,26 @@ First approach is prepare a little bit your data exchange. This way you can ask 
 
 ### Expected result
 
-Have a collection in POSTMAN with samples requests. You will need request to:
+Build collections in POSTMAN with samples requests. You will need request to:
 
-- Search according what the user type and get a list of results
-- Get the details of one item in the result list
-- Get the number of visit on your home page
+Collection museum:
 
+API is available at https://metmuseum.github.io/
+
+- List departments
+- Search object with a keywork by department or not
+- Filtering by visible object at museum
+- Filtering by result with image only 
+- Get detail of an object
+
+Collection visits:
+
+API is available at https://countapi.xyz/#format
+
+- Get/Hit the number of visit on your home page
+- Get/hit the number of search on your site
+- Get/hit the total number of click on detail 
+- Get info on those hits
 ### Tips & help
 
 - Begin by the simpliest request the API can do
