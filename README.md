@@ -4,12 +4,17 @@ Basics of web development
 
 # Goal
 
-Goal is build a small search engine.
+Goal is build a small search engine across the Metropolitan Museum of Art of New-York
+
+https://metmuseum.github.io/
 
 A user should be able to perform:
 
-- Search in a field and click to run the online search
-- Show results in a table 
+- Choose a department in a combobox
+- Check a combobox to choose only result with "On view in museum"
+- Type a keyword in in a field
+- Click to run an online search
+- Show results in a table or "No Result" 
 - Click on detail icon which is on each line
 - See the details on the page 
 
@@ -134,4 +139,9 @@ Use https://countapi.xyz/#format
 
 ## 8 - Want more? Most visited details
 
-Change the HTML table of hot visit by a raph.
+Change the HTML table of hot visit by a graph.
+
+# Resources
+
+Create a HTML form: https://developer.mozilla.org/fr/docs/Web/HTML/Element/form
+Make request with javascript: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
