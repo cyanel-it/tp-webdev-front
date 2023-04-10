@@ -144,4 +144,5 @@ Change the HTML table of hot visit by a graph.
 # Resources
 
 Create a HTML form: https://developer.mozilla.org/fr/docs/Web/HTML/Element/form
-Make request with javascript: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+Make request with javascript level 1: https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/
+Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
