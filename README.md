@@ -4,12 +4,15 @@ Basics of web development
 
 # Goal
 
-Goal is build a small search engine.
+Goal is build a small search engine across the Metropolitan Museum of Art of New-York
 
 A user should be able to perform:
 
-- Search in a field and click to run the online search
-- Show results in a table 
+- Choose a department in a combobox
+- Check a combobox to choose only result with "On view in museum"
+- Type a keyword in in a field
+- Click to run an online search
+- Show results in a table or "No Result" 
 - Click on detail icon which is on each line
 - See the details on the page 
 
@@ -28,11 +31,26 @@ First approach is prepare a little bit your data exchange. This way you can ask 
 
 ### Expected result
 
-Have a collection in POSTMAN with samples requests. You will need request to:
+Build collections in POSTMAN with samples requests. You will need request to:
 
-- Search according what the user type and get a list of results
-- Get the details of one item in the result list
-- Get the number of visit on your home page
+Collection museum:
+
+API is available at https://metmuseum.github.io/
+
+- List departments
+- Search object with a keywork by department or not
+- Filtering by visible object at museum
+- Filtering by result with image only 
+- Get detail of an object
+
+Collection visits:
+
+API is available at https://countapi.xyz/#format
+
+- Get/Hit the number of visit on your home page
+- Get/hit the number of search on your site
+- Get/hit the total number of click on detail 
+- Get info on those hits
 
 ### Tips & help
 
@@ -65,14 +83,14 @@ Now let's put peaces together. Let's begin to make things dynamic by implementin
 
 ### Expected result
 
+- Make the departments list dynamic
 - A click on search trigger a call to the API
 - The result is displayed in the JavaScript console in a raw format
 
 ### Tips & help
 
-- Click on the button has no effect until the user type something in the search field
-- Make a JavaScript file home.js and call it in the bottom of your page
-- JavaScript has a function fetch() that could be useful ;)
+- Make a JavaScript file index.js and call it in the bottom of your index.html page
+- JavaScript has a function fetch() that could be useful, see link below
 - console.log() allow you to display things in the web dev console of the browser
 
 ## 4 - Display result in the table
@@ -134,4 +152,15 @@ Use https://countapi.xyz/#format
 
 ## 8 - Want more? Most visited details
 
-Change the HTML table of hot visit by a raph.
+Change the HTML table of hot visit by a graph.
+
+# Resources
+
+- Create a HTML form: https://developer.mozilla.org/fr/docs/Web/HTML/Element/form
+- Make request with javascript level 1: https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/
+- Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+- Javascript, for loop: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+- Javascript, JSON arrays (advanced): https://www.sitepoint.com/loop-through-json-response-javascript/
+- Javascript, playground: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
+- HTML Avoid to post a form: https://stackoverflow.com/questions/2825856/html-button-to-not-submit-form
+
