@@ -148,5 +148,6 @@ Make request with javascript level 1: https://www.pierre-giraud.com/javascript-a
 Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
 Javascript, for loop: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 Javascript, JSON arrays (advanced): https://www.sitepoint.com/loop-through-json-response-javascript/
-Avoid to post a form: https://stackoverflow.com/questions/2825856/html-button-to-not-submit-form
+Javascript, playground: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
+HTML Avoid to post a form: https://stackoverflow.com/questions/2825856/html-button-to-not-submit-form
 
