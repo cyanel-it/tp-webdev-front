@@ -93,6 +93,8 @@ This is a sample of page structure you can begin with
 - How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
 - Many examples of HTML elements to copy/paste, very useful: https://www.w3schools.com/html/ 
 
+Need inspiration? See step2 directory in this repository
+
 ## 3 - Implement the search form
 
 Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
