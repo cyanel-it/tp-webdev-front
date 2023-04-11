@@ -156,6 +156,7 @@ Change the HTML table of hot visit by a graph.
 
 # Resources
 
+- Create first HTML page : https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
 - Create a HTML form: https://developer.mozilla.org/fr/docs/Web/HTML/Element/form
 - Make request with javascript level 1: https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/
 - Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
