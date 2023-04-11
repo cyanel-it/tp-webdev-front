@@ -73,7 +73,8 @@ This is a sample of page structure you can begin with
 
 ### Tips & help
 
-- You can find info on page structure on [alsacreation](https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html)
+- How to build your first page: https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
+- How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
 - First, stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
 - Colors in mock above have been arbitrary choosen 
 
