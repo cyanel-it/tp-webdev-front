@@ -4,58 +4,72 @@ Basics of web development
 
 # Goal
 
-Goal is build a small search engine across the Metropolitan Museum of Art of New-York
+Goal is to build a small search engine across the Metropolitan Museum of Art of New-York objects. Your application allows users to look for in the museum database with a small search form and show information and pictures of them.
 
-A user should be able to perform:
+As a user, you should be able to perform:
 
-- Choose a department in a combobox
-- Check a combobox to choose only result with "On view in museum"
-- Type a keyword in in a field
-- Click to run an online search
-- Show results in a table or "No Result" 
-- Click on detail icon which is on each line
-- See the details on the page 
+- Choose a department
+- Choose if you wants only result with "On view in museum" (checkbox)
+- Type a keyword in in a field (e.g. sarcophagus)
+- Click to search
+- Show results in a table
+- Click on detail on each line
+- See the details of the selected objects
 
-You should to be able to:
+As a administrator, You should to be able to:
 
-- Know about the usage of your site by tacking and display statistics
+- Show statistics about usage of your site
 
+To acheive this, 3 steps:
+
+1. Understand and build test API suites with POSTMAN
+2. Make a static web page
+3. Make this page dynamic by using JavaScript and API call based on test suite
 
 Good luck, I will enjoy my coffee while you work hard ;)
 
 # Steps
 
-## 1 - Build your requests with POSTMAN
+## 1 - Build your requests with POSTMAN (2h)
 
-First approach is prepare a little bit your data exchange. This way you can ask questions early in the project and probably fix isssues, and avoid misunderstanding with your customer.
+First approach is to prepare a little bit your data exchange and allow you to:
+
+- Understand how the API works (could be very complex)
+- Know if your are able to perform required requests on the API
+- Have several samples to use when you need to call the API in a application
 
 ### Expected result
 
-Build collections in POSTMAN with samples requests. You will need request to:
+Build two collections in POSTMAN with samples requests, "Museum" and "Visits"
 
-Collection museum:
+#### Collection "Museum"
 
-API is available at https://metmuseum.github.io/
+API documentation is available at https://metmuseum.github.io/
 
-- List departments
-- Search object with a keywork by department or not
-- Filtering by visible object at museum
-- Filtering by result with image only 
+You need 4 requests:
+
+- Get a list of departments ID
+- Search object with a keywork by department ID
+- Search object with a keywork by department ID and Add criteria to get only "visible object in museum" and image only 
 - Get detail of an object
 
-Collection visits:
+#### Collection "visits"
 
-API is available at https://countapi.xyz/#format
+API documentation is available at https://countapi.xyz/#format
 
-- Get/Hit the number of visit on your home page
-- Get/hit the number of search on your site
-- Get/hit the total number of click on detail 
+You need 4 resquests:
+
+- Get/Hit the number of "visit" on your home page
+- Get/hit the number of "search" on your site
+- Get/hit the total number of click on "detail" 
 - Get info on those hits
+
+> You will need an sitename in the countapi, use your name (e.g. cyrilportales)
 
 ### Tips & help
 
-- Begin by the simpliest request the API can do
-- Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products)
+- Begin by the simpliest request the API can do, copy/paste given samples
+- Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products, 2 Seach product by category...)
 
 ## 2 - Build your web page from scratch
 
@@ -73,10 +87,11 @@ This is a sample of page structure you can begin with
 
 ### Tips & help
 
+> Stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
+
 - How to build your first page: https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
 - How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
-- First, stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
-- Colors in mock above have been arbitrary choosen 
+- Many examples of HTML elements to copy/paste, very useful: https://www.w3schools.com/html/ 
 
 ## 3 - Implement the search form
 
@@ -159,6 +174,7 @@ Change the HTML table of hot visit by a graph.
 
 - Create first HTML page : https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
 - Create a HTML form: https://developer.mozilla.org/fr/docs/Web/HTML/Element/form
+- Samples of form in HTML: https://www.w3schools.com/html/html_forms.asp 
 - Make request with javascript level 1: https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/
 - Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
 - Javascript, for loop: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
