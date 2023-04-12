@@ -181,6 +181,7 @@ Change the HTML table of hot visit by a graph.
 - Make request with javascript level 2: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
 - Javascript, for loop: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 - Javascript, JSON arrays (advanced): https://www.sitepoint.com/loop-through-json-response-javascript/
+- Javascript, create event onclick: https://www.w3schools.com/js/js_htmldom_eventlistener.asp 
 - Javascript, playground: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
 - HTML Avoid to post a form: https://stackoverflow.com/questions/2825856/html-button-to-not-submit-form
 
