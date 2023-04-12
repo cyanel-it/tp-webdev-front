@@ -111,6 +111,106 @@ Now let's put peaces together. Let's begin to make things dynamic by implementin
 - JavaScript has a function fetch() that could be useful, see link below
 - console.log() allow you to display things in the web dev console of the browser
 
+#### Get data from the server
+
+To get data from the server, you can use fetch (this function is provided in scripts/get_data.js)
+
+```JavaScript
+    if (window.fetch) {
+
+        console.log("Fetch is available");
+    
+        fetch("https://collectionapi.metmuseum.org/public/collection/v1/departments")
+        .then(response => response.json())
+        .then(response => function(response){
+
+            //result is here, you can parse the json
+            JSON.parse(response);
+        })
+        .catch(error => alert("Erreur : " + error));
+    
+    } else {
+        // Faire quelque chose avec XMLHttpRequest?
+        console.log("Fetch is disabled")
+    }
+```
+
+#### Use the provided getJsonData() function
+
+```JavaScript
+//function to call an URL and push json result in a function
+function getJsonData(urlGet, func){
+    if (window.fetch) {
+
+        console.log("Fetch is available");
+    
+        fetch(urlGet)
+        .then(response => response.json())
+        .then(response => func(response))
+        .catch(error => alert("Erreur : " + error));
+    
+    } else {
+        // Faire quelque chose avec XMLHttpRequest?
+        console.log("Fetch is disabled")
+    }
+}
+
+function testGetData(data) {
+    //disploy in console of your browser, you should see an object
+    //This list in the exemple has only one property "departments" so you have to use this as an array
+    console.log(data);
+    console.log(data.departments);
+    //loop to get each result in data
+    for (var eachItem of data.departments) {
+        console.log(eachItem);
+    }
+
+}
+
+getJsonData("https://collectionapi.metmuseum.org/public/collection/v1/departments", testGetData);
+
+```
+#### Fill a select box
+
+A select in HTML is made of :
+
+- "select" to wrap the component
+- "option" to add choice inside
+
+To create a select and fill options with JavaScript, create an select with an unic ID (here departmentId)
+
+```HTML
+    <div>
+        <label for="departmentId">Department</label>
+        <select id="departmentId" name="departmentId">
+            <option>All</option>
+            <!-- Filled by javascript -->
+        </select>
+    </div>
+```
+
+Then, use javascript to get this select and create option inside:
+
+```JavaScript
+function fillOptionDepartment(data) {
+    //This get the list of your HTML template
+    const select = document.querySelector('#departmentId');
+
+    console.log("Load Departments list"+ data);
+
+    //This loop on the json result
+    for (const item of data.departments) {
+        //this line create option HTML Object with one value of json list
+        newOption = new Option(item.displayName, item.departmentId);
+        //This line add the HTML option to the HTML list
+        select.add(newOption,undefined);
+    }
+}
+```
+
+> To create data object in argument use the provided function in get_data.js
+
+
 ## 4 - Display result in the table
 
 Now it's time to let the user show the result of his search. the body of the table will be now changed to be built with JavaScript
@@ -184,4 +284,4 @@ Change the HTML table of hot visit by a graph.
 - Javascript, create event onclick: https://www.w3schools.com/js/js_htmldom_eventlistener.asp 
 - Javascript, playground: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
 - HTML Avoid to post a form: https://stackoverflow.com/questions/2825856/html-button-to-not-submit-form
-
+- POSTMAN: use variables: https://learning.postman.com/docs/sending-requests/variables/#using-variables 
