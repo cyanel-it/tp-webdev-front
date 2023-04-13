@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>Museum tour</title>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles/main.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -42,12 +44,12 @@
             </section>
             <section id="details" hidden>
                 <article>
-                    <h2>Object title (no search)</h2>
-                    <img src="https://www.metmuseum.org/-/media/images/perspectives/teasers/from-the-archives_teaser_1440x960.jpg" />
-                    <p id="detail_description"></p>
-                    <aside><a href="">More info (link to the website</a></aside>
+                    <h2 id="object_title">Object title (no search)</h2>
+                    <p id="object_description"></p>
+                    <aside><a id="object_link" href="" target="_blank">info (link to the website</a></aside>
+                    <img width="50%" id="object_img" src="https://www.metmuseum.org/-/media/images/perspectives/teasers/from-the-archives_teaser_1440x960.jpg" />
                 </article>
-            </section>
+            </section>  
             <section id="result" hidden>
                 <h2>Results</h2>
                 <table>

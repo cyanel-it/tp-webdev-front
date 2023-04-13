@@ -1,0 +1,86 @@
+<!-- This tag indicate the type of the HTML in this page, here is HTML5 -->
+<!DOCTYPE html>
+<html>
+    <!-- Head are all metadata of the page that the user cannot see: title, css links, robot information... -->
+    <head>
+        <!-- This title is visible in the tab of the browser -->
+        <title>Tab title</title>
+
+        <!-- The viewport control how the page is diplayed on devices. Allow to "zoom" when the screen is small -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="styles/main.css" rel="stylesheet">
+    </head>
+
+    <!-- body is the visible part of a page -->
+    <body>
+        <!-- header identify the global part of your site like title, nav, connection widget... -->
+        <header>
+            <h1>Main title - HTML Template</h1>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="section1">
+                <h2>Section 1</h2>
+                <form>
+                    <div>
+                        <label for="option1">Option box</label>
+                        <select id="option1" name="option1">
+                            <option value="0" >All</option>
+                            <option value="10">Egyptian art</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="textfield">Textfield</label>
+                        <input id="textfield" name="textfield" />
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkbox" name="checkbox" value="yes">
+                        <label for="isOnView">Checkbox</label>
+                    </div>
+                    <button type="button" id="search_action">Search</button>
+                </form>
+                <aside>
+                    <span id="nbResult">345</span><span> result(s)</span>
+                </aside>
+            </section>
+            <section id="section2">
+                <article>
+                    <h2 id="object_title">Section 2 (detail)</h2>
+                    <p id="object_description">A description of an object</p>
+                    <aside><a id="object_link" href="#" target="_blank">info (link to the website</a></aside>
+                    <img width="50%" id="object_img" src="https://www.metmuseum.org/-/media/images/perspectives/teasers/from-the-archives_teaser_1440x960.jpg" />
+                </article>
+            </section>  
+            <section id="section3" hidden>
+                <h2>Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Object</th>
+                            <th>Country</th>
+                            <th>Departement</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="resultTable">
+                        <tr>
+                            <td>Vase</td>
+                            <td>Spain</td>
+                            <td>Egyptian Art</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>
+        </footer>
+        <script src="scripts/script1.js"></script> 
+        <script src="scripts/script2.js"></script> 
+    </body>
+</html>
