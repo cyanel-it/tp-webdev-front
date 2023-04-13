@@ -30,7 +30,7 @@ Good luck, I will enjoy my coffee while you work hard ;)
 
 # Steps
 
-## 1 - Build your requests with POSTMAN (2h)
+## Step 1 - Build your requests with POSTMAN (2h)
 
 First approach is to prepare a little bit your data exchange and allow you to:
 
@@ -71,7 +71,7 @@ You need 4 resquests:
 - Begin by the simpliest request the API can do, copy/paste given samples
 - Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products, 2 Seach product by category...)
 
-## 2 - Build your web page from scratch
+## Step 2 - Build your web page from scratch
 
 Now it's time to have a first static mock. It's not the last version you will build so don't spend all your energy with styling. Keep this KISS (Keep It Simple Stupid).
 
@@ -95,14 +95,15 @@ This is a sample of page structure you can begin with
 
 Need inspiration? See step2 directory in this repository
 
-## 3 - Implement the search form
+## Step 3 - Implement the search form
 
 Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
 
 ### Expected result
 
-- Make the departments list dynamic
-- A click on search trigger a call to the API
+- Make the departments list dynamic (fill select with option with javascript)
+- Create the search URL to run when user click on search (addEventListener and document.querySelector)
+- Run the request (provided getJsondata function in get_data.js)
 - The result is displayed in the JavaScript console in a raw format
 
 ### Tips & help
