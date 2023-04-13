@@ -87,7 +87,24 @@ This is a sample of page structure you can begin with
 
 ### Tips & help
 
+A web page is a file with HTML tags. you can also link different file:
+
+- JavaScript for scripting, for example, a file index.js could be call like this
+
+```HTML
+<!-- Do this at the end of the body HTML tag -->
+<script src="index.js"></script>
+```
+
+- CSS for styling:
+
+```HTML
+<link href="styles/main.css" rel="stylesheet">
+```
+
 > Stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
+
+To help you, you can use this sources: 
 
 - How to build your first page: https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
 - How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
