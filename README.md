@@ -126,34 +126,13 @@ Now let's put peaces together. Let's begin to make things dynamic by implementin
 ### Tips & help
 
 - Make a JavaScript file index.js and call it in the bottom of your index.html page
+- "document" is an special object that contain the HTML element
 - JavaScript has a function fetch() that could be useful, see link below
 - console.log() allow you to display things in the web dev console of the browser
 
-#### Get data from the server
+#### Get data from the server and make form dynamic
 
 To get data from the server, you can use fetch (this function is provided in scripts/get_data.js)
-
-```JavaScript
-    if (window.fetch) {
-
-        console.log("Fetch is available");
-    
-        fetch("https://collectionapi.metmuseum.org/public/collection/v1/departments")
-        .then(response => response.json())
-        .then(response => function(response){
-
-            //result is here, you can parse the json
-            JSON.parse(response);
-        })
-        .catch(error => alert("Erreur : " + error));
-    
-    } else {
-        // Faire quelque chose avec XMLHttpRequest?
-        console.log("Fetch is disabled")
-    }
-```
-
-#### Use the provided getJsonData() function
 
 ```JavaScript
 //function to call an URL and push json result in a function
@@ -173,22 +152,23 @@ function getJsonData(urlGet, func){
     }
 }
 
+//use this function above by giving an url, and a function name to execute to get result and ploy with it
+getJsonData("https://collectionapi.metmuseum.org/public/collection/v1/departments", testGetData);
+
+//Create the function you use in call above
 function testGetData(data) {
-    //disploy in console of your browser, you should see an object
+    //display in console of your browser, you should see an object
     //This list in the exemple has only one property "departments" so you have to use this as an array
     console.log(data);
     console.log(data.departments);
-    //loop to get each result in data
+    //loop to get each result in data (here departements is an attribute in the result, see the console)
     for (var eachItem of data.departments) {
         console.log(eachItem);
     }
-
 }
-
-getJsonData("https://collectionapi.metmuseum.org/public/collection/v1/departments", testGetData);
-
 ```
-#### Fill a select box
+
+#### Fill a select box with data by using getJsonData
 
 A select in HTML is made of :
 
@@ -210,24 +190,128 @@ To create a select and fill options with JavaScript, create an select with an un
 Then, use javascript to get this select and create option inside:
 
 ```JavaScript
+getJsonData("https://collectionapi.metmuseum.org/public/collection/v1/departments", testGetData);
+
 function fillOptionDepartment(data) {
-    //This get the list of your HTML template
+    //This receive the list of your departements called above
+
+    //document.querySelector is a way to get the <select></select> element and play with it
+    //departmentId is the id of the HTML element in your page
+    //<select id="departmentId" name="departmentId">
+    //We put it in const to ploy with just after
     const select = document.querySelector('#departmentId');
 
+    //display in console to check data
     console.log("Load Departments list"+ data);
 
     //This loop on the json result
+    //For each department in result....
     for (const item of data.departments) {
-        //this line create option HTML Object with one value of json list
+        //we create option HTML Object with one value of json list (<option value="1">value</option>)
         newOption = new Option(item.displayName, item.departmentId);
-        //This line add the HTML option to the HTML list
+
+        //now, each time, we add dynamically the option in the <select>
         select.add(newOption,undefined);
     }
 }
 ```
 
-> To create data object in argument use the provided function in get_data.js
+> The principle is the same for any object you want to make dynamic: Get data, load your HTML element, inject data
 
+#### Implement search action when user clic
+
+![Clic process](docs/img/clic_process.png)
+
+In this step, you have to:
+
+- Detect when the user click on the button
+- Get user information in the form and create the /search url with this
+- Call the serveur with this URL and loop on result
+
+##### To detect the action and make things when happen
+
+We use a listener, it's a way to declare that something can happen when you click on a element.
+
+```JavaScript
+//Get the HTML button
+const formButton = document.querySelector("#search_action");
+
+//Declare a possible action on it.
+formButton.addEventListener("click", performSearch);
+
+//now, if you click, the function will be executed
+function performSearch() {
+    //We will call the network with the search url here
+    //1. Build the URL with user choice
+    var searchUrl = "https://collectionapi.metmuseum.org/public/collection/v1";
+
+    //add the ? to the value of the variable, now url is "https://collectionapi.metmuseum.org/public/collection/v1?"
+    searchUrl += "?";
+
+    //add the value of the HTML input "q", the keywork the user type
+    //Now URL is "https://collectionapi.metmuseum.org/public/collection/v1?q=something"
+    searchUrl += "q=" + document.querySelector("#q").value;
+
+    //... continue with departmentID
+    searchUrl += "&departmentId="+ document.querySelector("#departmentId").selectedOptions[0].value;
+
+    //2. Call the network with this URL (GetJsonData(url, function))
+    getJsonData(searchUrl, displayResult);
+
+    //3. Create a function to to loop an objects list in result 
+    function displayResult(data){
+        //we will loop on each object id to get detail
+    }
+}
+```
+
+> Here you see how to get value in a HTML field and option with the .value
+
+##### To loop throw json list result (here, objedtIDs received)
+
+```JavaScript
+//Handle result to push in the HTML table
+//offset is to limit result. Offset could be change by the user disploy next results
+//That why the data and offset are global, to allow to keep data and display only result from offset to limit
+function displayResult(data) {
+    
+    //disploy the total
+    document.querySelector("#nbResult").innerHTML = data.total;
+
+    //make available outside the function
+    dataSearch = data;
+
+    //Destroy the table
+    resultTable.innerHTML = "";
+
+    if (dataSearch.total > 0){
+
+        document.querySelector("#result").hidden = false;
+
+        itemViewed = offset;
+
+        for (var searchItemId of dataSearch.objectIDs){
+            var objectUrl = apiUrl + "/objects/"+searchItemId;
+
+            if (itemViewed >= limit){
+                alert("Only 100 result disployed");
+                return;
+            }
+
+            itemViewed++;
+            
+            getJsonData(objectUrl, insertRow);
+        }
+    }
+
+}
+
+function insertRow(data){
+    //We have detail on each object several time, let's create a row each time
+    //see next step
+}
+
+```
 
 ## 4 - Display result in the table
 
@@ -242,6 +326,53 @@ JavaScript use the result and for each element must create a row for the table
 - Give an "id" to your table to be able to handle it with JavaScript
 - JavaScript is able to build HTML element or inject HTML syntax in the page. You can choose the method you prefer (it's better to use JavaScript function to build HTML but it's harder to handle when you begin)
 - Think about cleaning your table between searches
+
+#### How to insert row
+
+This HTML table is empty, but have an ID on its body, so we will play with javascript. First create the table in the page:
+
+```HTML
+<table>
+    <thead>
+        <tr>
+            <th>Object</th>
+            <th>Country</th>
+            <th>Departement</th>
+        </tr>
+    </thead>
+    <tbody  id="resultTable">
+        <!-- Will be filled by JavaScript -->
+    </tbody>
+</table>
+```
+
+Then, in JS file, get the table thanks to document.querySelector(id) and create a function to insert row inside
+
+```JavaScript
+var anObject = data.objectID;
+
+var objectUrl = "https://collectionapi.metmuseum.org/public/collection/v1/object/"+anObject;
+
+getJsonData(objectUrl, insertRow);
+
+//Create the function to insert the row
+function insertRow(data){
+
+    var objectName = data.title;
+    var objectLink = '<a href="#" onClick="initDetail(this, '+data.objectID+')">'+objectName+'</a>';
+
+    var row = resultTable.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = objectLink;
+    cell2.innerHTML = data.country;
+    cell3.innerHTML = data.department;
+}
+```
+
+> You have to make the URL dynamic according user choice
+
 
 ## 5 - Implement the details zone
 

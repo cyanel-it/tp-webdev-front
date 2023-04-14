@@ -32,10 +32,6 @@ function fillOptionDepartment(data) {
 //hit visit each time it's load
 getJsonData("https://api.countapi.xyz/hit/cpo/visits", hitVisit);
 
-function hitVisit(data){
-    var nbVisitEl = document.querySelector("#nb_visit");
-    nbVisitEl.innerHTML = data.value;
-}
 //------
 
 
@@ -126,26 +122,25 @@ function displayResult(data) {
             }
 
             itemViewed++;
-
-            fetch(objectUrl)
-            .then(response => response.json())
-            .then(async function(response){
-
-                var objectName = response.title;
-                var objectLink = '<a href="#" onClick="initDetail(this, '+response.objectID+')">'+objectName+'</a>';
-
-                var row = resultTable.insertRow(-1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                cell1.innerHTML = objectLink;
-                cell2.innerHTML = response.country;
-                cell3.innerHTML = response.department;
-            });
-
+            
+            getJsonData(objectUrl, insertRow);
         }
     }
 
+}
+
+function insertRow(data){
+
+    var objectName = data.title;
+    var objectLink = '<a href="#" onClick="initDetail(this, '+data.objectID+')">'+objectName+'</a>';
+
+    var row = resultTable.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = objectLink;
+    cell2.innerHTML = data.country;
+    cell3.innerHTML = data.department;
 }
 
 function initDetail(element, objectID){
@@ -167,10 +162,16 @@ function displayDetail(data){
     getJsonData("https://api.countapi.xyz/hit/cpo/detail", hitDetail);
 }
 
+//hit functions
 function hitSearch(data){
     console.log("Search count: " + data.value);
 }
 
 function hitDetail(data){
     console.log("Search count: " + data.value);
+}
+
+function hitVisit(data){
+    var nbVisitEl = document.querySelector("#nb_visit");
+    nbVisitEl.innerHTML = data.value;
 }

@@ -30,12 +30,9 @@ function fillOptionDepartment(data) {
 }
 
 //hit visit each time it's load
+//all hit functions are at the end
 getJsonData("https://api.countapi.xyz/hit/cpo/visits", hitVisit);
 
-function hitVisit(data){
-    var nbVisitEl = document.querySelector("#nb_visit");
-    nbVisitEl.innerHTML = data.value;
-}
 //------
 
 
@@ -167,10 +164,17 @@ function displayDetail(data){
     getJsonData("https://api.countapi.xyz/hit/cpo/detail", hitDetail);
 }
 
+
+/// Hits function
 function hitSearch(data){
     console.log("Search count: " + data.value);
 }
 
 function hitDetail(data){
     console.log("Search count: " + data.value);
+}
+
+function hitVisit(data){
+    var nbVisitEl = document.querySelector("#nb_visit");
+    nbVisitEl.innerHTML = data.value;
 }

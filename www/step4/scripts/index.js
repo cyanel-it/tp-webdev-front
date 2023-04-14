@@ -21,6 +21,7 @@ function fillOptionDepartment(data) {
     }
 }
 
+
 //Handle result to push in the HTML table
 //offset is to limit result. Offset could be change by the user disploy next results
 //That why the data and offset are global, to allow to keep data and display only result from offset to limit
