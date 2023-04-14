@@ -4,7 +4,9 @@ Basics of web development
 
 # Goal
 
-Goal is to build a small search engine across the Metropolitan Museum of Art of New-York objects. Your application allows users to look for in the museum database with a small search form and show information and pictures of them.
+Goal is to build a small search engine across the Metropolitan Museum of Art of New-York objects.
+
+Your application allows users to look for in the museum database with a small search form and show information and pictures of them.
 
 As a user, you should be able to perform:
 
@@ -26,23 +28,22 @@ To acheive this, 3 steps:
 2. Make a static web page
 3. Make this page dynamic by using JavaScript and API call based on test suite
 
-Good luck, I will enjoy my coffee while you work hard ;)
+# Step 1 - Build your requests with POSTMAN (2h)
 
-# Steps
-
-## Step 1 - Build your requests with POSTMAN (2h)
-
-First approach is to prepare a little bit your data exchange and allow you to:
+## Goal
 
 - Understand how the API works (could be very complex)
 - Know if your are able to perform required requests on the API
 - Have several samples to use when you need to call the API in a application
 
-### Expected result
+## Expected result
 
-Build two collections in POSTMAN with samples requests, "Museum" and "Visits"
+Build 2 collections in POSTMAN with samples requests:
 
-#### Collection "Museum"
+- "Museum" with API https://metmuseum.github.io/
+- "Visits" with API https://countapi.xyz/#format
+
+## Collection "Museum"
 
 API documentation is available at https://metmuseum.github.io/
 
@@ -53,7 +54,7 @@ You need 4 requests:
 - Search object with a keywork by department ID and Add criteria to get only "visible object in museum" and image only 
 - Get detail of an object
 
-#### Collection "visits"
+## Collection "visits"
 
 API documentation is available at https://countapi.xyz/#format
 
@@ -66,26 +67,34 @@ You need 4 resquests:
 
 > You will need an sitename in the countapi, use your name (e.g. cyrilportales)
 
-### Tips & help
+## Tips & help
 
 - Begin by the simpliest request the API can do, copy/paste given samples
 - Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products, 2 Seach product by category...)
 
-## Step 2 - Build your web page from scratch
+# Step 2 - Build your web page from scratch
 
-Now it's time to have a first static mock. It's not the last version you will build so don't spend all your energy with styling. Keep this KISS (Keep It Simple Stupid).
+## Goal 
 
-### Expected result
+- Discover HTML
+- Have a static page to have an idea of the final application
+
+> It's not the last version you will build so don't spend all your energy with styling. Keep this KISS (Keep It Simple Stupid).
+
+## Expected result
 
 Have a static HTML home page with future components. It's a kind of mock that we can validate with the customer and make it dynamic and styled later on.
 
-### mockup
+## mockup
 
 This is a sample of page structure you can begin with
 
+
 ![Homepage mock](docs/img/home_mock.png)
 
-### Tips & help
+## Tips & help
+
+### How to insert JavaScript
 
 A web page is a file with HTML tags. you can also link different file:
 
@@ -95,6 +104,8 @@ A web page is a file with HTML tags. you can also link different file:
 <!-- Do this at the end of the body HTML tag -->
 <script src="index.js"></script>
 ```
+
+### How to insert CSS
 
 - CSS for styling:
 
@@ -112,25 +123,26 @@ To help you, you can use this sources:
 
 Need inspiration? See step2 directory in this repository
 
-## Step 3 - Implement the search form
+> Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
 
-Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
+# Step 3a - Implement the search form
 
-### Expected result
+## Goal 
+
+Fill department list of a HTML select
+
+## Expected result
 
 - Make the departments list dynamic (fill select with option with javascript)
-- Create the search URL to run when user click on search (addEventListener and document.querySelector)
-- Run the request (provided getJsondata function in get_data.js)
-- The result is displayed in the JavaScript console in a raw format
 
-### Tips & help
+## Tips & help
 
 - Make a JavaScript file index.js and call it in the bottom of your index.html page
 - "document" is an special object that contain the HTML element
 - JavaScript has a function fetch() that could be useful, see link below
 - console.log() allow you to display things in the web dev console of the browser
 
-#### Get data from the server and make form dynamic
+### Get data from the server and make form dynamic
 
 To get data from the server, you can use fetch (this function is provided in scripts/get_data.js)
 
@@ -168,7 +180,7 @@ function testGetData(data) {
 }
 ```
 
-#### Fill a select box with data by using getJsonData
+### Fill a select box with data by using getJsonData
 
 A select in HTML is made of :
 
@@ -216,9 +228,24 @@ function fillOptionDepartment(data) {
 }
 ```
 
+
+# Step 3b - Implement the search form
+
+## Goal 
+
+Catch the action on the search button and get user choice with JavaScript
+
+## Expected result
+
+- Create the search URL to run when user click on search (addEventListener and document.querySelector)
+- Run the request (provided getJsondata function in get_data.js)
+- The result is a objectIDs displayed in the JavaScript console in a raw format
+
 > The principle is the same for any object you want to make dynamic: Get data, load your HTML element, inject data
 
-#### Implement search action when user clic
+## Implement search action when user clic
+
+To detect a clic on button, you have to declare an event with "addEventListener". This is the JavaScript process
 
 ![Clic process](docs/img/clic_process.png)
 
@@ -228,7 +255,7 @@ In this step, you have to:
 - Get user information in the form and create the /search url with this
 - Call the serveur with this URL and loop on result
 
-##### To detect the action and make things when happen
+#### To detect the action and make things when happen
 
 We use a listener, it's a way to declare that something can happen when you click on a element.
 
@@ -267,7 +294,7 @@ function performSearch() {
 
 > Here you see how to get value in a HTML field and option with the .value
 
-##### To loop throw json list result (here, objedtIDs received)
+#### To loop throw json list result (here, objedtIDs received)
 
 ```JavaScript
 //Handle result to push in the HTML table
@@ -313,21 +340,21 @@ function insertRow(data){
 
 ```
 
-## 4 - Display result in the table
+# 4 - Display result in the table
 
 Now it's time to let the user show the result of his search. the body of the table will be now changed to be built with JavaScript
 
-### Expected result
+## Expected result
 
 JavaScript use the result and for each element must create a row for the table 
 
-### Tips & help
+## Tips & help
 
 - Give an "id" to your table to be able to handle it with JavaScript
 - JavaScript is able to build HTML element or inject HTML syntax in the page. You can choose the method you prefer (it's better to use JavaScript function to build HTML but it's harder to handle when you begin)
 - Think about cleaning your table between searches
 
-#### How to insert row
+### How to insert row
 
 This HTML table is empty, but have an ID on its body, so we will play with javascript. First create the table in the page:
 
@@ -374,22 +401,22 @@ function insertRow(data){
 > You have to make the URL dynamic according user choice
 
 
-## 5 - Implement the details zone
+# 5 - Implement the details zone
 
 Let's your engine to be more powerful by adding a link to disploy more details on a row.
 
-### Expected result
+## Expected result
 
 - When user click on a link in the row, the site make a new HTTP request to get details on the item
 - The details are used to fill the details section
 
-### Tips & help
+## Tips & help
 
 - JavaScript has feature to hide / disploy a HTML portion thanks to CSS, could be an improvement to disploy only when result comes.
 
-## 6 - Add counters on your site
+# 6 - Add counters on your site
 
-### Expected feature
+## Expected feature
 
 The counters must track:
 
@@ -397,29 +424,23 @@ The counters must track:
 - How many search user done
 - How many times user decide to show the detail (whatever it is)
 
-### Tips & help
+## Tips & help
 
 - Use the online free hit API: https://countapi.xyz/#format
 - Reminder : Postman is your friend to discover and play without UI drawbacks
 
-## 7 - Create a new page for statistics and put the link in the home page
+# 7 - Create a new page for statistics and put the link in the home page
 
 ### Expected feature
 
 Anybody can access to a page stats.html. This page show the statistics of your site (visits, search, details) as a table.
 
-### mockup
-
-### Tips & help
+## Tips & help
 
 Use https://countapi.xyz/#format
 
 - The main difference with the previous step is that all requests on this page don't hit the counters, it's only info
 - Prefer to use XHR/fetch or JQuery method (For JQuery, you need to declare jQuery first)
-
-## 8 - Want more? Most visited details
-
-Change the HTML table of hot visit by a graph.
 
 # Resources
 
