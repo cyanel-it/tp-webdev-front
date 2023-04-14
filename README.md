@@ -47,43 +47,58 @@ Build 2 collections in POSTMAN with samples requests:
 
 API documentation is available at https://metmuseum.github.io/
 
-You need 4 requests:
+Make 4 requests:
 
-- Get a list of departments ID
-- Search object with a keywork by department ID
-- Search object with a keywork by department ID and Add criteria to get only "visible object in museum" and image only 
-- Get detail of an object
+- Get a list of departments ID (/departments endpoint)
+- Search object with a keywork by department ID (/search endpoint)
+- Search object with a keywork by department ID and Add criteria to get only "visible object in museum" and image only (/search endpoint)
+- Get detail of an object (/objects/{objectID} endpoint)
 
 ## Collection "visits"
 
 API documentation is available at https://countapi.xyz/#format
 
-You need 4 resquests:
+Make 4 resquests:
 
-- Get/Hit the number of "visit" on your home page
-- Get/hit the number of "search" on your site
-- Get/hit the total number of click on "detail" 
-- Get info on those hits
+- Get/Hit the number of "visit" on your home page (/hit endpoint)
+- Get/hit the number of "search" on your site (/hit endpoint)
+- Get/hit the total number of click on "detail" (/hit endpoint)
+- Get info on those hits (/info endpoint)
 
 > You will need an sitename in the countapi, use your name (e.g. cyrilportales)
 
 ## Tips & help
 
-- Begin by the simpliest request the API can do, copy/paste given samples
-- Give a id to your request to quickly identify the difficulty, or a logical order (e.g. 1 Get all products, 2 Seach product by category...)
+Second API is totally diferent than the first one. It's a good example of how the API and its documentation can vary.
+
+- Read!
+- Test examples copy/paste given samples
+- Begin by the simpliest request the API can do
+- Give a id to your request name to quickly identify the difficulty, or a logical order (e.g. 1 Get all products, 2 Seach product by category...)
+
+When you work with API, the result of 1 API has often the input id for another one. . You should begin to design the most generic first, and go with more detail bit a bit.
+
+See this exemple:
+
+- First, we get a list of people 
+- Second, we use the id of 1 user to get more detail about him
+- Finally, we use the id of his address to get detail about it
+
+![API interaction](docs/img/api_dependency.png)
+
 
 # Step 2 - Build your web page from scratch
 
 ## Goal 
 
-- Discover HTML
+- Discover HTML across standard structure, form and table (most used components)
 - Have a static page to have an idea of the final application
 
 > It's not the last version you will build so don't spend all your energy with styling. Keep this KISS (Keep It Simple Stupid).
 
 ## Expected result
 
-Have a static HTML home page with future components. It's a kind of mock that we can validate with the customer and make it dynamic and styled later on.
+Have one file index.html as home page with components we need. It's a kind of mockup that we can validate with the customer and make it dynamic and styled later on.
 
 ## mockup
 
@@ -94,11 +109,47 @@ This is a sample of page structure you can begin with
 
 ## Tips & help
 
+
+### How to create a basic structure
+
+To help you, you can use this sources: 
+
+- How to build your first page: https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
+- How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
+- Many examples of HTML elements to copy/paste, very useful: https://www.w3schools.com/html/ 
+
+you will find a standard page like this:
+
+```HTML
+
+<!-- Doctype indicate the type of code, here means it's HTML5 -->
+<!doctype html>
+
+<!-- Get the default lang of the page -->
+<html lang="fr">
+<head>
+  <!-- The encoding format of the page  -->
+  <meta charset="utf-8">
+
+  <!-- Title in a tab -->
+  <title>Titre de la page</title>
+
+  <!-- link to a style file -->
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <!-- Content of the page -->
+
+  <!-- link to a JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
 ### How to insert JavaScript
 
-A web page is a file with HTML tags. you can also link different file:
-
-- JavaScript for scripting, for example, a file index.js could be call like this
+A web page can link different file. One of it is JavaScript file. for example, a file index.js located at the same level of the index.html could be call like this:
 
 ```HTML
 <!-- Do this at the end of the body HTML tag -->
@@ -115,17 +166,9 @@ A web page is a file with HTML tags. you can also link different file:
 
 > Stay focus on feature and content, not design. When your feature work, begin to make this beautiful :)
 
-To help you, you can use this sources: 
+# Step 3a - Create first interaction with the API
 
-- How to build your first page: https://www.alsacreations.com/article/lire/1374-html5-structure-globale-document.html
-- How to organize a page structure: https://www.alsacreations.com/article/lire/1376-html5-section-article-nav-header-footer-aside.html
-- Many examples of HTML elements to copy/paste, very useful: https://www.w3schools.com/html/ 
-
-Need inspiration? See step2 directory in this repository
-
-> Now let's put peaces together. Let's begin to make things dynamic by implementing the first request in HMTL/JavaScript
-
-# Step 3a - Implement the search form
+Now let's put peaces together. Let's begin to make things dynamic by implementing the first request JavaScript.
 
 ## Goal 
 
@@ -137,9 +180,33 @@ Fill department list of a HTML select
 
 ## Tips & help
 
-- Make a JavaScript file index.js and call it in the bottom of your index.html page
-- "document" is an special object that contain the HTML element
+- Think that you have to link a JavaScript file index.js in the bottom of your index.html
+
+- JavaScript has several objects in the environment
+
+```JavaScript
+
+//Create a variable
+var name = "Alex"
+
+//Display in browser console
+console.log("Coucou");
+
+//display a dialog box
+alert("Coucou "+ name);
+
+//reference to the browser capability
+window.*
+
+//reference to the HTML code
+document.*
+
+//Get a HTML element by its id attribute
+document.getElementById("id");
+```
+
 - JavaScript has a function fetch() that could be useful, see link below
+
 - console.log() allow you to display things in the web dev console of the browser
 
 ### Get data from the server and make form dynamic
@@ -229,7 +296,7 @@ function fillOptionDepartment(data) {
 ```
 
 
-# Step 3b - Implement the search form
+# Step 3b - Implement the search button action
 
 ## Goal 
 
@@ -260,6 +327,7 @@ In this step, you have to:
 We use a listener, it's a way to declare that something can happen when you click on a element.
 
 ```JavaScript
+
 //Get the HTML button
 const formButton = document.querySelector("#search_action");
 
